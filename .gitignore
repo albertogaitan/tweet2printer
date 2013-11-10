@@ -38,3 +38,5 @@ nosetests.xml
 # Editors
 *.sublime-*
 
+# None'ya
+_notes.md
