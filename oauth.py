@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import tweepy
 
 # == OAuth Authentication ==
@@ -7,7 +8,7 @@ import tweepy
 
 # The consumer keys can be found on your application's Details
 # page located at https://dev.twitter.com/apps (under "OAuth settings")
-consumer_key=""
+consumer_key="gI9Wwx9sDypIYM5CZ6Jrg"
 consumer_secret=""
 
 # The access tokens can be found on your applications's Details

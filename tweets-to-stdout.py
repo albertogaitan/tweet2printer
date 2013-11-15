@@ -7,17 +7,20 @@ import sys
 import tweepy
 
 consumer_key="gI9Wwx9sDypIYM5CZ6Jrg"
-consumer_secret="xlwINdrwtGIjXv6qgKntRcuoDC22zSmgGFVhe2GOTs"
+consumer_secret=""
 access_key = "8939262-RSbDGcwln6nRZKNYHPlPtO8bqrbxdHbVyKAywhpMMU"
-access_secret = "OmvEuFn8ljd7G8PG4z3PAZ0wRu8vMHtpWRaRGItbanaFd"
+access_secret = ""
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_key, access_secret)
 api = tweepy.API(auth)
 
+pretty_post = "\n\n"
+
 class CustomStreamListener(tweepy.StreamListener):
+
     def on_status(self, status):
-        print status.text
+        print status.text.encode("UTF-8", 'ignore') + pretty_post
 
     def on_error(self, status_code):
         print >> sys.stderr, 'Encountered error with status code:', status_code
@@ -28,4 +31,4 @@ class CustomStreamListener(tweepy.StreamListener):
         return True # Don't kill the stream
 
 sapi = tweepy.streaming.Stream(auth, CustomStreamListener())
-sapi.filter(track=['shorthaircam'])
+sapi.filter(track=['batkid'])
