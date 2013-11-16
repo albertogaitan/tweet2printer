@@ -20,7 +20,7 @@ pretty_post = "\n\n"
 class CustomStreamListener(tweepy.StreamListener):
 
     def on_status(self, status):
-        print status.text.encode("UTF-8", 'ignore') + pretty_post
+        print status.text.encode("cp1252", 'ignore') + pretty_post
 
     def on_error(self, status_code):
         print >> sys.stderr, 'Encountered error with status code:', status_code
@@ -30,5 +30,6 @@ class CustomStreamListener(tweepy.StreamListener):
         print >> sys.stderr, 'Timeout...'
         return True # Don't kill the stream
 
+#print >> sys.stderr, str(sys.argv[1:])
 sapi = tweepy.streaming.Stream(auth, CustomStreamListener())
-sapi.filter(track=['batkid'])
+sapi.filter(track=sys.argv[1:])
